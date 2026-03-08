@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Application_Cfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:19
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -55,6 +55,16 @@
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
+
+/* Number of application objects: OsApplication */
+# define OS_CFG_NUM_APP_OSAPPLICATION_ALARMS             (1u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_COUNTERS           (0u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_HOOKS              (0u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_ISRS               (0u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_CAT1ISRS           (0u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_SCHTS              (0u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_TASKS              (1u)
+# define OS_CFG_NUM_APP_OSAPPLICATION_SERVICES           (0u)
 
 /* Number of application objects: SystemApplication_OsCore0 */
 # define OS_CFG_NUM_APP_SYSTEMAPPLICATION_OSCORE0_ALARMS             (1u)

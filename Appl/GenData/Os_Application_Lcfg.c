@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Application_Lcfg.c
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:19
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -94,6 +94,9 @@
 #define OS_START_SEC_CORE0_VAR_NOINIT_UNSPECIFIED
 #include "Os_MemMap_OsSections.h" /* PRQA S 5087 */ /* MD_MSR_MemMap */
 
+/*! Dynamic application data: OsApplication */
+OS_LOCAL VAR(Os_AppType, OS_VAR_NOINIT) OsCfg_App_OsApplication_Dyn;
+
 /*! Dynamic application data: SystemApplication_OsCore0 */
 OS_LOCAL VAR(Os_AppType, OS_VAR_NOINIT) OsCfg_App_SystemApplication_OsCore0_Dyn;
 
@@ -111,6 +114,89 @@ OS_LOCAL VAR(Os_AppType, OS_VAR_NOINIT) OsCfg_App_SystemApplication_OsCore0_Dyn;
 
 #define OS_START_SEC_CORE0_CONST_UNSPECIFIED
 #include "Os_MemMap_OsSections.h" /* PRQA S 5087 */ /* MD_MSR_MemMap */
+
+/*! Object reference table for application alarms: OsApplication */
+OS_LOCAL CONST(Os_AlarmConfigRefType, OS_CONST) OsCfg_App_OsApplication_AlarmRefs[OS_CFG_NUM_APP_OSAPPLICATION_ALARMS + 1u] =
+{
+  OS_ALARM_CASTCONFIG_ALARMSETEVENT_2_ALARM(OsCfg_Alarm_Rte_Al_TE_test_swc_Runnable),
+  NULL_PTR
+};
+
+/*! Object reference table for application counters: OsApplication */
+OS_LOCAL CONST(Os_CounterConfigRefType, OS_CONST) OsCfg_App_OsApplication_CounterRefs[OS_CFG_NUM_APP_OSAPPLICATION_COUNTERS + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Object reference table for application hooks: OsApplication */
+OS_LOCAL CONST(Os_HookConfigRefType, OS_CONST) OsCfg_App_OsApplication_HookRefs[OS_CFG_NUM_APP_OSAPPLICATION_HOOKS + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Object reference table for application ISRs: OsApplication */
+OS_LOCAL CONST(Os_IsrConfigRefType, OS_CONST) OsCfg_App_OsApplication_IsrRefs[OS_CFG_NUM_APP_OSAPPLICATION_ISRS + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Object reference table for application category 1 (EXTERNAL) ISRs: OsApplication */
+OS_LOCAL CONST(Os_IsrCat1ConfigRefType, OS_CONST) OsCfg_App_OsApplication_Cat1IsrRefs[OS_CFG_NUM_APP_OSAPPLICATION_CAT1ISRS + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Object reference table for application schedule tables: OsApplication */
+OS_LOCAL CONST(Os_SchTConfigRefType, OS_CONST) OsCfg_App_OsApplication_SchTRefs[OS_CFG_NUM_APP_OSAPPLICATION_SCHTS + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Object reference table for application tasks: OsApplication */
+OS_LOCAL CONST(Os_TaskConfigRefType, OS_CONST) OsCfg_App_OsApplication_TaskRefs[OS_CFG_NUM_APP_OSAPPLICATION_TASKS + 1u] =
+{
+  OS_TASK_CASTCONFIG_TASK_2_TASK(OsCfg_Task_AppTask),
+  NULL_PTR
+};
+
+/*! Object reference table for application trusted functions: OsApplication */
+OS_LOCAL CONST(Os_ServiceConfigRefType, OS_CONST) OsCfg_App_OsApplication_ServiceRefs[OS_CFG_NUM_APP_OSAPPLICATION_SERVICES + 1u] =
+{
+  NULL_PTR
+};
+
+/*! Application configuration data: OsApplication */
+CONST(Os_AppConfigType, OS_CONST) OsCfg_App_OsApplication =
+{
+  /* .Dyn                  = */ &OsCfg_App_OsApplication_Dyn,
+  /* .Core                 = */ &OsCfg_Core_OsCore0,
+  /* .AccessRightId        = */ OS_APPID2MASK(OsApplication),
+  /* .TaskRefs             = */ OsCfg_App_OsApplication_TaskRefs,
+  /* .TaskCount            = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_TASKS,
+  /* .IsrCat2Refs          = */ OsCfg_App_OsApplication_IsrRefs,
+  /* .IsrCat2Count         = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_ISRS,
+  /* .IsrCat1Refs          = */ OsCfg_App_OsApplication_Cat1IsrRefs,
+  /* .IsrCat1Count         = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_CAT1ISRS,
+  /* .CounterRefs          = */ OsCfg_App_OsApplication_CounterRefs,
+  /* .CounterCount         = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_COUNTERS,
+  /* .AlarmRefs            = */ OsCfg_App_OsApplication_AlarmRefs,
+  /* .AlarmCount           = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_ALARMS,
+  /* .SchTRefs             = */ OsCfg_App_OsApplication_SchTRefs,
+  /* .SchTCount            = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_SCHTS,
+  /* .ServiceFunctions     = */ OsCfg_App_OsApplication_ServiceRefs,
+  /* .ServiceFunctionCount = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_SERVICES,
+  /* .StartupHookRef       = */ NULL_PTR,
+  /* .ShutdownHookRef      = */ NULL_PTR,
+  /* .ErrorHookRef         = */ NULL_PTR,
+  /* .HookRefs             = */ OsCfg_App_OsApplication_HookRefs,
+  /* .HookCount            = */ (Os_ObjIdxType)OS_CFG_NUM_APP_OSAPPLICATION_HOOKS,
+  /* .TraceAppl            = */ NULL_PTR,
+  /* .RestartTask          = */ NULL_PTR,
+  /* .IsTrusted            = */ TRUE,
+  /* .IsPriveleged         = */ TRUE,
+  /* .HasTimingProtectionDelay = */ FALSE,
+  /* .Id                   = */ OsApplication
+};
 
 /*! Object reference table for application alarms: SystemApplication_OsCore0 */
 OS_LOCAL CONST(Os_AlarmConfigRefType, OS_CONST) OsCfg_App_SystemApplication_OsCore0_AlarmRefs[OS_CFG_NUM_APP_SYSTEMAPPLICATION_OSCORE0_ALARMS + 1u] =
@@ -210,6 +296,7 @@ CONST(Os_AppConfigType, OS_CONST) OsCfg_App_SystemApplication_OsCore0 =
 /*! Object reference table for applications. */
 CONSTP2CONST(Os_AppConfigType, OS_CONST, OS_CONST) OsCfg_AppRefs[OS_APPID_COUNT + 1] =   /* PRQA S 4521 */ /* MD_Os_Rule10.1_4521 */
 {
+  &OsCfg_App_OsApplication,
   &OsCfg_App_SystemApplication_OsCore0,
   NULL_PTR
 };

@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_MemMapInt.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:20
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -94,6 +94,31 @@
 # undef OS_OS_COREINITHOOK_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
 
 # undef OS_STOP_SEC_OS_COREINITHOOK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_AppTask_CODE
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_AppTask_CODE_OPEN
+
+# undef OS_START_SEC_AppTask_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_AppTask_CODE
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_AppTask_CODE_OPEN
+#  error Section OS_AppTask_CODE is currently not opened and so cannot be closed.
+# endif
+# undef OS_AppTask_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_AppTask_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
 # undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
 #endif
 
@@ -424,6 +449,256 @@
 # undef OS_GLOBALSHARED_CONST_FAST_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
 
 # undef OS_STOP_SEC_GLOBALSHARED_CONST_FAST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_BOOLEAN_OPEN
+#  error Section OS_OsApplication_CONST_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_8BIT_OPEN
+#  error Section OS_OsApplication_CONST_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_16BIT_OPEN
+#  error Section OS_OsApplication_CONST_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_32BIT_OPEN
+#  error Section OS_OsApplication_CONST_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_CONST_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_FAST_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_FAST_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_FAST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_FAST_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_FAST_BOOLEAN_OPEN
+#  error Section OS_OsApplication_CONST_FAST_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_FAST_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_FAST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_FAST_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_FAST_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_FAST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_FAST_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_FAST_8BIT_OPEN
+#  error Section OS_OsApplication_CONST_FAST_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_FAST_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_FAST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_FAST_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_FAST_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_FAST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_FAST_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_FAST_16BIT_OPEN
+#  error Section OS_OsApplication_CONST_FAST_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_FAST_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_FAST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_FAST_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_FAST_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_FAST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_FAST_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_FAST_32BIT_OPEN
+#  error Section OS_OsApplication_CONST_FAST_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_FAST_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_FAST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_CONST_FAST_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_CONST_FAST_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_CONST_FAST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_CONST_FAST_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_CONST_FAST_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_CONST_FAST_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_CONST_FAST_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_CONST_FAST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
 # undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
 #endif
 
@@ -1804,6 +2079,1131 @@
 # undef OS_GLOBALSHARED_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
 
 # undef OS_STOP_SEC_GLOBALSHARED_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOINIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOINIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOINIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOINIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_NOINIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOINIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOINIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOINIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOINIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOINIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOINIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOINIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOINIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOINIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOINIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOINIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOINIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOINIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOINIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOINIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOINIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOINIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOINIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOINIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOINIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOINIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOINIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOINIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_NOINIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOINIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_ZERO_INIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_ZERO_INIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_ZERO_INIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_ZERO_INIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_ZERO_INIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_ZERO_INIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_ZERO_INIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_ZERO_INIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_ZERO_INIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_ZERO_INIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_ZERO_INIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_ZERO_INIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_ZERO_INIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_ZERO_INIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_ZERO_INIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_ZERO_INIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_ZERO_INIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_ZERO_INIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_ZERO_INIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_ZERO_INIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_ZERO_INIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_ZERO_INIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_ZERO_INIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_ZERO_INIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_ZERO_INIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_FAST_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_FAST_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_NOINIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_NOINIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_FAST_NOINIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_NOINIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_NOINIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_NOINIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_NOINIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_NOINIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_NOINIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_NOINIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_NOINIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_NOINIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_NOINIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_NOINIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_NOINIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_NOINIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_ZERO_INIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_ZERO_INIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_ZERO_INIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_ZERO_INIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_ZERO_INIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_ZERO_INIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_ZERO_INIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_ZERO_INIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_ZERO_INIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_ZERO_INIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_FAST_ZERO_INIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_ZERO_INIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_FAST_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_NOINIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_NOINIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_NOINIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_NOINIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_NOINIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_NOINIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_NOINIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_NOINIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_NOINIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_NOINIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_NOINIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_NOINIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_NOINIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_BOOLEAN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_8BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_16BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_32BIT /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED
+# ifdef OS_MEMMAP_SECTION_OPEN
+#  error A MemMap section is already open. Nesting is not supported.
+# endif
+# define OS_MEMMAP_SECTION_OPEN
+# define OS_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED_OPEN
+
+# undef OS_START_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+#endif
+
+#ifdef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED
+# ifndef OS_MEMMAP_SECTION_OPEN
+#  error No MemMap section is currently opened.
+# endif
+# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED_OPEN
+#  error Section OS_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED is currently not opened and so cannot be closed.
+# endif
+# undef OS_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+# undef OS_STOP_SEC_OsApplication_VAR_NOCACHE_ZERO_INIT_UNSPECIFIED /* PRQA S 0841 */ /* MD_MSR_Undef */
 # undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
 #endif
 

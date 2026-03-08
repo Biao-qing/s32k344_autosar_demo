@@ -47,44 +47,17 @@
 #endif
 
 /**********************************************************************************************************************
- *  TASK IMPLEMENTATIONS
- *********************************************************************************************************************/
-
-/**
- * @brief Default Init Task
- */
-TASK(Default_Init_Task)
-{
-    /* Task initialization */
-    for (;;) {
-        /* Task main loop - terminate if not needed */
-        TerminateTask();
-    }
-}
-
-/**
- * @brief Default Init Task (Trusted)
- */
-TASK(Default_Init_Task_Trusted)
-{
-    /* Task initialization */
-    for (;;) {
-        /* Task main loop - terminate if not needed */
-        TerminateTask();
-    }
-}
-
-/**********************************************************************************************************************
  *  MAIN FUNCTION
  *********************************************************************************************************************/
 
 int main(void) {
     /* AUTOSAR initialization sequence */
+	Os_InitMemory();
     Os_Init();
     EcuM_Init();
 
     /* OS is now running, let EcuM take control */
-    StartOS(OSDEFAULTAPPMODE);
+//    StartOS(OSDEFAULTAPPMODE);
 
     return 0;
 }

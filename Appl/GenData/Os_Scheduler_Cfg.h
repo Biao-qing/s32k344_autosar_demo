@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Scheduler_Cfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:20
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -65,7 +65,7 @@
 /* Number of task queue activation slots: OsCore0 */
 # define OS_CFG_NUM_TASKQUEUE0_OSCORE0_SLOTS     (2u)
 # define OS_CFG_NUM_TASKQUEUE1_OSCORE0_SLOTS     (2u)
-# define OS_CFG_NUM_TASKQUEUE2_OSCORE0_SLOTS     (3u)
+# define OS_CFG_NUM_TASKQUEUE2_OSCORE0_SLOTS     (4u)
 # define OS_CFG_NUM_TASKQUEUE3_OSCORE0_SLOTS     (2u)
 
 

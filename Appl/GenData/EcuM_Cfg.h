@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: EcuM_Cfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:35:13
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -137,7 +137,7 @@
 #define ECUM_RESETMODECOUNT                                           (4u)
 #define ECUM_SHUTDOWNCAUSECOUNT                                       (4u)
 #define ECUM_NUMBER_OF_CORES                                          (1u)
-#define ECUM_NUMBER_OF_OS_APPLICATIONS                                (1u)
+#define ECUM_NUMBER_OF_OS_APPLICATIONS                                (2u)
 
 #define ECUM_CORE_ID_STARTUP                                          OS_CORE_ID_MASTER
 #define ECUM_CORE_ID_BSW                                              OS_CORE_ID_MASTER

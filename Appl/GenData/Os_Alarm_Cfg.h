@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Alarm_Cfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:19
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -63,7 +63,7 @@
 # define OS_CFG_ALARM_ACTIVATETASK_USED                 (STD_ON)
 
 /*! Defines whether any alarm has a SetEvent action (STD_ON) or not (STD_OFF) */
-# define OS_CFG_ALARM_SETEVENT_USED                     (STD_OFF)
+# define OS_CFG_ALARM_SETEVENT_USED                     (STD_ON)
 
 /*! Defines whether any alarm has an IncrementCounter action (STD_ON) or not (STD_OFF) */
 # define OS_CFG_ALARM_INCREMENTCOUNTER_USED             (STD_OFF)

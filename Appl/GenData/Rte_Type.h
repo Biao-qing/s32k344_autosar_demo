@@ -32,7 +32,7 @@
 /**********************************************************************************************************************
  * Type definitions for mode management
  *********************************************************************************************************************/
-typedef uint8 Rte_EventMaskType;
+typedef EventMaskType Rte_EventMaskType;
 # endif /* defined(RTE_CORE) */
 
 /* PRQA S 1039 EOF */ /* MD_Rte_1039 */

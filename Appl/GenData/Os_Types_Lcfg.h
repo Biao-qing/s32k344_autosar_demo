@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Types_Lcfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:20
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -62,6 +62,7 @@
  *********************************************************************************************************************/
 
 /* OS-Application identifiers. */
+#define OsApplication OsApplication
 #define SystemApplication_OsCore0 SystemApplication_OsCore0
 
 /* Trusted function identifiers. */
@@ -71,6 +72,7 @@
 /* Fast trusted function identifiers. */
 
 /* Task identifiers. */
+#define AppTask AppTask
 #define BswTask BswTask
 #define Default_Init_Task Default_Init_Task
 #define Default_Init_Task_Trusted Default_Init_Task_Trusted
@@ -81,6 +83,7 @@
 
 /* Alarm identifiers. */
 #define Rte_Al_TE2_BswTask_0_10ms Rte_Al_TE2_BswTask_0_10ms
+#define Rte_Al_TE_test_swc_Runnable Rte_Al_TE_test_swc_Runnable
 
 /* Counter identifiers. */
 #define SystemTimer SystemTimer
@@ -114,8 +117,9 @@ typedef uint32  Os_AppAccessMaskType;
 /*! OS-Application identifiers. */
 typedef enum
 {
-  SystemApplication_OsCore0 = 0, /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  OS_APPID_COUNT = 1,
+  OsApplication = 0, /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  SystemApplication_OsCore0 = 1, /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  OS_APPID_COUNT = 2,
   INVALID_OSAPPLICATION = OS_APPID_COUNT
 } ApplicationType;
 
@@ -140,11 +144,12 @@ typedef enum
 /*! Task identifiers. */
 typedef enum
 {
-  BswTask = 0,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  Default_Init_Task = 1,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  Default_Init_Task_Trusted = 2,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  IdleTask_OsCore0 = 3,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  OS_TASKID_COUNT = 4,
+  AppTask = 0,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  BswTask = 1,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  Default_Init_Task = 2,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  Default_Init_Task_Trusted = 3,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  IdleTask_OsCore0 = 4,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  OS_TASKID_COUNT = 5,
   INVALID_TASK = OS_TASKID_COUNT
 } TaskType;
 
@@ -160,7 +165,8 @@ typedef enum
 typedef enum
 {
   Rte_Al_TE2_BswTask_0_10ms = 0,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  OS_ALARMID_COUNT = 1
+  Rte_Al_TE_test_swc_Runnable = 1,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  OS_ALARMID_COUNT = 2
 } AlarmType;
 
 /*! Counter identifiers. */

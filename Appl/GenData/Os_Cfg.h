@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Cfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 15:37:19
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -120,9 +120,10 @@
 # define OS_APPMODE_ANY     ((AppModeType)255)
 
 /*! Defines whether EVENT is active (STD_ON) or not (STD_OFF). */
-# define OS_CFG_EVENT                            (STD_OFF)
+# define OS_CFG_EVENT                            (STD_ON)
 
 /* Event masks */
+# define Rte_Ev_Run_test_swc_Runnable     ((EventMaskType)1uLL)
 
 /* Software counter timing macros */
 

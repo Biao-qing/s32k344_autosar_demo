@@ -28,6 +28,25 @@
  * They are presented as a comment in the corresponding object definition containing a list of all legal values.
  *********************************************************************************************************************/
 
+   TASK AppTask {
+      ACTIVATION = 1:"@RO@";
+      PRIORITY = 0:"@RO@";
+      SCHEDULE = FULL:"@RO@";
+// TIMING_PROTECTION = FALSE|TRUE; (AUTOSAR OS only)
+      AUTOSTART = FALSE:"@RO@";
+      EVENT = Rte_Ev_Run_test_swc_Runnable:"@RO@";
+   }:"@RO@@NR@";
+
+   ALARM Rte_Al_TE_test_swc_Runnable {
+      COUNTER = SystemTimer;
+      ACTION = SETEVENT
+      {
+         TASK = AppTask;
+         EVENT = Rte_Ev_Run_test_swc_Runnable;
+      }:"@ROC@";
+      AUTOSTART = FALSE:"@RO@";
+   }:"@RO@@NR@";
+
    TASK BswTask {
       ACTIVATION = 1:"@RO@";
       PRIORITY = 0:"@RO@";
@@ -44,3 +63,7 @@
       }:"@ROC@";
       AUTOSTART = FALSE:"@RO@";
    }:"@RO@@NR@";
+
+   EVENT Rte_Ev_Run_test_swc_Runnable {
+      MASK = AUTO;
+   }:"@ROC@@NR@";

@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: EcuM_PrivateCfg.h
- *   Generation Time: 2026-03-07 22:33:38
+ *   Generation Time: 2026-03-08 23:49:53
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -91,8 +91,8 @@
 #define EcuM_GetDefaultShutdownModeOfPCConfig()                                                     0u  /**< Default Shutdown Mode - Depending on target it its either a Sleep Mode or Reset Mode. */
 #define EcuM_GetDefaultShutdownTargetOfPCConfig()                                                   ECUM_STATE_OFF  /**< Default Shutdown Target */
 #define EcuM_GetDriverInitOneOfPCConfig()                                                           EcuM_DriverInitOne  /**< the pointer to EcuM_DriverInitOne */
-#define EcuM_GetEcuM_CRCHash_LowerOfPCConfig()                                                      0xC5C9E88Cu
-#define EcuM_GetEcuM_CRCHash_UpperOfPCConfig()                                                      0x2D450B59u
+#define EcuM_GetEcuM_CRCHash_LowerOfPCConfig()                                                      0x88FA5917u
+#define EcuM_GetEcuM_CRCHash_UpperOfPCConfig()                                                      0xADFA4B04u
 #define EcuM_GetGeneratorCompatibilityVersionOfPCConfig()                                           3328u
 #define EcuM_GetMaxWakeupSourceCountOfPCConfig()                                                    5u  /**< Max Wakeup source count. */
 #define EcuM_GetModuleStateOfPCConfig()                                                             (&(EcuM_ModuleState))  /**< the pointer to EcuM_ModuleState */
