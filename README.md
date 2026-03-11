@@ -63,6 +63,63 @@ s32k344_Autosar_Demo/
 
 ```
 Reset → ARMStartup_CortexM → main()
-  → Os_Init() → EcuM_Init() → StartOS(OSDEFAULTAPPMODE)
-  → Default_Init_Task / Default_Init_Task_Trusted
+  → EcuM_Init()
+    ├─> EcuM_AL_SetProgrammableInterrupts()
+    ├─> ECUM_DRIVERINITLIST_ZERO()
+    ├─> ECUM_DRIVERINITLIST_ONE()
+    └─> EcuM_StartOS(OSDEFAULTAPPMODE)
+         → StartOS()
+              ├─> StartupHook() → EcuM_StartupTwo()
+              │      ├─> SchM_Init()
+              │      ├─> BswM_Init()
+              │      ├─> ECUM_DRIVERINITLIST_TWO()
+              │      ├─> Rte_Start()
+              │      │      ├─> ActivateTask(AppTask)
+              │      │      ├─> SetRelAlarm(BswTask)
+              │      │      └─> SetRelAlarm(test_swc)
+              │      └─> ECUM_DRIVERINITLIST_THREE()
+              └─> IdleTask_OsCore0
 ```
+
+## 任务说明
+
+| 任务 | 优先级 | Autostart | 功能 |
+|------|---------|-----------|------|
+| AppTask | 0 | 通过ActivateTask()激活 | test_swc应用任务 |
+| BswTask | 0 | 通过Alarm周期激活(10ms) | BswM和EcuM主函数 |
+| IdleTask_OsCore0 | 1 | OS_APPMODE_ANY | OS内核空闲任务 |
+
+## 常见问题与解决
+
+### 1. 链接错误：undefined reference to 'Os_Task_Default_Init_Task'
+
+**原因**：OS配置中定义了Default_Init_Task和Default_Init_Task_Trusted，但RTE没有为它们分配Runnable，导致没有生成任务实现代码。
+
+**解决方案**（选择其一）：
+
+#### 方案A：在StartupHook中调用EcuM_StartupTwo()（推荐）
+
+编辑 `Appl/Source/Os_Callout_Stubs.c`：
+
+```c
+#if OS_CFG_STARTUPHOOK_SYSTEM == STD_ON
+FUNC(void, OS_STARTUPHOOK_CODE) StartupHook(void)
+{
+  /* OS启动后调用EcuM_StartupTwo来完成初始化 */
+  EcuM_StartupTwo();
+}
+#endif
+```
+
+#### 方案B：恢复Default_Init_Task
+
+在DaVinci Configurator中重新添加Default_Init_Task任务并生成代码。
+
+### 2. 程序烧录后没有运行
+
+**原因**：没有调用`Rte_Start()`，导致AppTask和BswTask从未激活。
+
+**检查步骤**：
+1. 确认`Os_Callout_Stubs.c`中StartupHook调用了EcuM_StartupTwo()
+2. 使用调试器检查程序是否进入StartupHook
+3. 检查OS是否正常启动
