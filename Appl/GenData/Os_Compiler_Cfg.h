@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Compiler_Cfg.h
- *   Generation Time: 2026-03-08 15:37:19
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -51,7 +51,6 @@
 # define OS_APPTASK_CODE
 # define OS_BSWTASK_CODE
 # define OS_DEFAULT_INIT_TASK_CODE
-# define OS_DEFAULT_INIT_TASK_TRUSTED_CODE
 
 
 #endif /* OS_COMPILER_CFG_H */

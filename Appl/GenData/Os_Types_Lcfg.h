@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Types_Lcfg.h
- *   Generation Time: 2026-03-08 15:37:20
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -75,7 +75,6 @@
 #define AppTask AppTask
 #define BswTask BswTask
 #define Default_Init_Task Default_Init_Task
-#define Default_Init_Task_Trusted Default_Init_Task_Trusted
 #define IdleTask_OsCore0 IdleTask_OsCore0
 
 /* Category 2 ISR identifiers. */
@@ -147,9 +146,8 @@ typedef enum
   AppTask = 0,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
   BswTask = 1,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
   Default_Init_Task = 2,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  Default_Init_Task_Trusted = 3,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  IdleTask_OsCore0 = 4,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
-  OS_TASKID_COUNT = 5,
+  IdleTask_OsCore0 = 3,  /* PRQA S 0784 */ /* MD_Os_Rule5.5_0784 */
+  OS_TASKID_COUNT = 4,
   INVALID_TASK = OS_TASKID_COUNT
 } TaskType;
 

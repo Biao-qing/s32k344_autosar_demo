@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Application_Lcfg.c
- *   Generation Time: 2026-03-08 15:37:19
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -242,7 +242,6 @@ OS_LOCAL CONST(Os_TaskConfigRefType, OS_CONST) OsCfg_App_SystemApplication_OsCor
 {
   OS_TASK_CASTCONFIG_TASK_2_TASK(OsCfg_Task_BswTask),
   OS_TASK_CASTCONFIG_TASK_2_TASK(OsCfg_Task_Default_Init_Task),
-  OS_TASK_CASTCONFIG_TASK_2_TASK(OsCfg_Task_Default_Init_Task_Trusted),
   OS_TASK_CASTCONFIG_TASK_2_TASK(OsCfg_Task_IdleTask_OsCore0),
   NULL_PTR
 };

@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Rte_MemMap.h
- *   Generation Time: 2026-03-08 15:35:13
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -378,64 +378,6 @@
 
 /* -------------------------------------------------------------------------------- */
 
-#elif defined RTE_START_SEC_DEFAULT_INIT_TASK_CODE
-# ifdef MEMMAP_SECTION_OPEN
-#  error Using RTE_START_SEC_DEFAULT_INIT_TASK_CODE is not possible as a memory section has already been opened. Nesting is not supported.
-# endif
-# define MEMMAP_SECTION_OPEN
-# define RTE_DEFAULT_INIT_TASK_CODE_OPEN
-
-/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
-
-# undef RTE_START_SEC_DEFAULT_INIT_TASK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-#elif defined RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE
-# ifndef MEMMAP_SECTION_OPEN
-#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as no memory section has been opened.
-# endif
-# undef MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-# ifndef RTE_DEFAULT_INIT_TASK_CODE_OPEN
-#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as the corresponding memory section has not been opened.
-# endif
-# undef RTE_DEFAULT_INIT_TASK_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
-
-# undef RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-/* -------------------------------------------------------------------------------- */
-
-#elif defined RTE_START_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE
-# ifdef MEMMAP_SECTION_OPEN
-#  error Using RTE_START_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE is not possible as a memory section has already been opened. Nesting is not supported.
-# endif
-# define MEMMAP_SECTION_OPEN
-# define RTE_DEFAULT_INIT_TASK_TRUSTED_CODE_OPEN
-
-/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
-
-# undef RTE_START_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-#elif defined RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE
-# ifndef MEMMAP_SECTION_OPEN
-#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE is not possible as no memory section has been opened.
-# endif
-# undef MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-# ifndef RTE_DEFAULT_INIT_TASK_TRUSTED_CODE_OPEN
-#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE is not possible as the corresponding memory section has not been opened.
-# endif
-# undef RTE_DEFAULT_INIT_TASK_TRUSTED_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
-
-# undef RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-/* -------------------------------------------------------------------------------- */
-
 #elif defined RTE_START_SEC_IDLETASK_OSCORE0_CODE
 # ifdef MEMMAP_SECTION_OPEN
 #  error Using RTE_START_SEC_IDLETASK_OSCORE0_CODE is not possible as a memory section has already been opened. Nesting is not supported.
@@ -520,6 +462,35 @@
 
 # undef RTE_STOP_SEC_APPTASK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
 # undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+/* -------------------------------------------------------------------------------- */
+
+#elif defined RTE_START_SEC_DEFAULT_INIT_TASK_CODE
+# ifdef MEMMAP_SECTION_OPEN
+#  error Using RTE_START_SEC_DEFAULT_INIT_TASK_CODE is not possible as a memory section has already been opened. Nesting is not supported.
+# endif
+# define MEMMAP_SECTION_OPEN
+# define RTE_DEFAULT_INIT_TASK_CODE_OPEN
+
+/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
+
+# undef RTE_START_SEC_DEFAULT_INIT_TASK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+#elif defined RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE
+# ifndef MEMMAP_SECTION_OPEN
+#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as no memory section has been opened.
+# endif
+# undef MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+# ifndef RTE_DEFAULT_INIT_TASK_CODE_OPEN
+#  error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as the corresponding memory section has not been opened.
+# endif
+# undef RTE_DEFAULT_INIT_TASK_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
+
+/* Generation of pragmas is not possible as neither a start/stop pragma nor a valid vLinkGen logical group reference is given. */
+
+# undef RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
+# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
 #endif
 
 /* -------------------------------------------------------------------------------- */
@@ -595,18 +566,6 @@
 #ifdef RTE_STOP_SEC_BSWTASK_CODE
 # error Using RTE_STOP_SEC_BSWTASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
 #endif
-#ifdef RTE_START_SEC_DEFAULT_INIT_TASK_CODE
-# error Using RTE_START_SEC_DEFAULT_INIT_TASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
-#endif
-#ifdef RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE
-# error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
-#endif
-#ifdef RTE_START_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE
-# error Using RTE_START_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
-#endif
-#ifdef RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE
-# error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_TRUSTED_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
-#endif
 #ifdef RTE_START_SEC_IDLETASK_OSCORE0_CODE
 # error Using RTE_START_SEC_IDLETASK_OSCORE0_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
 #endif
@@ -624,6 +583,12 @@
 #endif
 #ifdef RTE_STOP_SEC_APPTASK_CODE
 # error Using RTE_STOP_SEC_APPTASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
+#endif
+#ifdef RTE_START_SEC_DEFAULT_INIT_TASK_CODE
+# error Using RTE_START_SEC_DEFAULT_INIT_TASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
+#endif
+#ifdef RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE
+# error Using RTE_STOP_SEC_DEFAULT_INIT_TASK_CODE is not possible as multiple memory allocation keywords are defined. Include the MemMap separately for each one.
 #endif
 
 #ifdef MEMMAP_ERROR

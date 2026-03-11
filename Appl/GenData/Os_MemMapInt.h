@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_MemMapInt.h
- *   Generation Time: 2026-03-08 15:37:20
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -169,31 +169,6 @@
 # undef OS_Default_Init_Task_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
 
 # undef OS_STOP_SEC_Default_Init_Task_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-#endif
-
-#ifdef OS_START_SEC_Default_Init_Task_Trusted_CODE
-# ifdef OS_MEMMAP_SECTION_OPEN
-#  error A MemMap section is already open. Nesting is not supported.
-# endif
-# define OS_MEMMAP_SECTION_OPEN
-# define OS_Default_Init_Task_Trusted_CODE_OPEN
-
-# undef OS_START_SEC_Default_Init_Task_Trusted_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
-# undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
-#endif
-
-#ifdef OS_STOP_SEC_Default_Init_Task_Trusted_CODE
-# ifndef OS_MEMMAP_SECTION_OPEN
-#  error No MemMap section is currently opened.
-# endif
-# undef OS_MEMMAP_SECTION_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-# ifndef OS_Default_Init_Task_Trusted_CODE_OPEN
-#  error Section OS_Default_Init_Task_Trusted_CODE is currently not opened and so cannot be closed.
-# endif
-# undef OS_Default_Init_Task_Trusted_CODE_OPEN /* PRQA S 0841 */ /* MD_MSR_Undef */
-
-# undef OS_STOP_SEC_Default_Init_Task_Trusted_CODE /* PRQA S 0841 */ /* MD_MSR_Undef */
 # undef MEMMAP_ERROR /* PRQA S 0841 */ /* MD_MSR_Undef */
 #endif
 

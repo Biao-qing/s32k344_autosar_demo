@@ -52,8 +52,6 @@
 
 int main(void) {
     /* AUTOSAR initialization sequence */
-	Os_InitMemory();
-    Os_Init();
     EcuM_Init();
 
     /* OS is now running, let EcuM take control */

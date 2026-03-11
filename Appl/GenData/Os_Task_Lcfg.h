@@ -21,7 +21,7 @@
  *  FILE DESCRIPTION
  *  -------------------------------------------------------------------------------------------------------------------
  *              File: Os_Task_Lcfg.h
- *   Generation Time: 2026-03-08 15:37:20
+ *   Generation Time: 2026-03-11 23:50:25
  *           Project: Demo - Version 1.0
  *          Delivery: CBD2300384_D00
  *      Tool Version: DaVinci Configurator Classic (beta) 5.26.40 SP3
@@ -92,9 +92,6 @@ extern CONST(Os_TaskConfigType, OS_CONST) OsCfg_Task_BswTask;
 
 /*! Task configuration data: Default_Init_Task */
 extern CONST(Os_TaskConfigType, OS_CONST) OsCfg_Task_Default_Init_Task;
-
-/*! Task configuration data: Default_Init_Task_Trusted */
-extern CONST(Os_TaskConfigType, OS_CONST) OsCfg_Task_Default_Init_Task_Trusted;
 
 /*! Task configuration data: IdleTask_OsCore0 */
 extern CONST(Os_TaskConfigType, OS_CONST) OsCfg_Task_IdleTask_OsCore0;
